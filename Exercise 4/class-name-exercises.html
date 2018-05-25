@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>conditional, toggle class name on clicked element</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="vue.js"></script>
+  <style>
+    .demo {
+      width: 300px;
+      height: 300px;
+      background: blue;
+    }
+    .red {
+      background-color: red
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div
+      class="demo"
+      @click="attachRedClass = !attachRedClass"
+      :class="{ red: attachRedClass }"
+    ></div>
+    <div class="demo" :style="{backgroundColor: color1}"></div>
+    <div class="demo" :style="{backgroundColor: color2}"></div>
+    <div class="demo" :style="boxStyles"></div>
+    <hr>
+    <label for="color1">color1</label>
+    <input type="text" v-model="color1" name="color1">
+    <label for="color2">color2</label>
+    <input type="text" v-model="color2" name="color2">
+    <label for="bgColor">bgColor</label>
+    <input type="text" v-model="bgColor" name="bgColor">
+    <label for="width">width</label>
+    <input type="text" v-model="width" name="width">
+
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        attachRedClass: false,
+        blue: '#08c',
+        color1: '',
+        color2: '',
+        bgColor: '',
+        width: ''
+      },
+      methods: {
+        startEffect: function() {
+        
+        }
+      },
+      computed: {
+        turnYellow: function() {
+          const vm = this;
+          vm.style.backgroundColor = 'yellow';
+        },
+        boxStyles: function() {
+          return {
+            backgroundColor: this.bgColor,
+            width: `${this.width}px`
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

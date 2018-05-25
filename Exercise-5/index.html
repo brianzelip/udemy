@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise 5</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div data-vue>
+      <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
+      <div>
+        <button @click="toggleShowP">Toggle</button>
+        <!-- v-if removes the element from DOM -->
+        <p v-if="showP">You either see me ...</p>
+        <p v-if="!showP">...or me</p>
+        <!-- v-show adds `display: none` to element inline style -->
+        <p v-show="showP">You either see me ...</p>
+        <p v-show="!showP">...or me</p>
+      </div>
+      <!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
+      <ul>
+        <li v-for="(item, i) in array">{{ item }} :: {{ i }}</li>
+      </ul>
+      <!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+      <ul>
+        <li v-for="(value, key, i) in myObject">{{ key }}: {{ value }} ({{ i }})</li>
+      </ul>
+      <!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
+      <ul>
+        <template v-for="(value, key) in testData">
+          <li v-if="Array.isArray(value)"> {{key}}:
+            <ul>
+              <li v-for="item in value">{{ item }}</li>
+            </ul>
+          </li>
+          <li v-else>{{ value }}</li>
+        </template>
+      </ul>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
+

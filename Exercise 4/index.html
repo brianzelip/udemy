@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise 4</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="vue.js"></script>
+  </head>
+
+  <body>
+    
+    <div data-vue>
+      <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+      <div>
+        <button @click="startEffect">Start Effect</button>
+        <div
+          id="effect"
+          :class="{
+            highlight: effectClasses.highlight,
+            shrink: effectClasses.shrink
+          }"
+          >
+        </div>
+      </div>
+      <hr>
+      <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+      <div :class="[p4, border, red, inlineBlock]">I got no class :(</div>
+      <hr>
+      <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+      <div>
+        <label for="userClassName">Type in a class to add it to the following div:</label>
+        <input id="userClassName" type="text" v-model="userClassName">
+        <div :class="[userClassName]" :style="{padding: '3rem', background: 'blue'}">Add a class to me, like: 
+          <ul>
+            <li>red</li>
+            <li>m3</li>
+            <li>border</li>
+            <li>inline-block</li>
+            <li>bg-green</li>
+            <li>bg-red</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+      <div>
+        <div>
+          <label for="userClassName2">Type in a class to add it to the following paragraph:</label>
+          <input id="userClassName2" type="text" v-model="userClassName2">
+        </div>
+        <div>
+          <label :style="{display: 'inline-block'}" for="userToggleBold">Attach the bold class to the following paragraph?</label>
+          <!-- <input :style="{display: 'block'}" id="" type="text" @="userToggleBold"> -->
+          <input type="checkbox" id="userToggleBold" v-model="userToggleBold">
+          <label for="userToggleBold">{{ userToggleBold }}</label>
+          <p :class="[{bold: userToggleBold}, userClassName2]">Hello Wilbur!</p>
+        </div>
+      </div>
+      <hr>
+      <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+      <hr>
+      <div>
+        <p>Fill in the following text boxes to manipulate the div below!</p>
+        <div>
+          <label for="userWidthInput">Width</label>
+          <input type="text" id="userWidthInput" v-model="userWidth">
+        </div>
+        <div>
+          <label for="userColorInput">Color</label>
+          <input type="text" id="userColorInput" v-model="userColor">
+        </div>
+        <div>
+          <label for="userBgColorInput">Background color</label>
+          <input type="text" id="userBgColorInput" v-model="userBgColor">
+        </div>
+        <div>
+          <label for="userFontSizeInput">Font size</label>
+          <input type="text" id="userFontSizeInput" v-model="userFontSize">
+        </div>
+
+        <div
+          :style="{width: `${userWidth}px`,
+            color: userColor,
+            backgroundColor: userBgColor,
+            fontSize: `${userFontSize}px`}"
+          class="border"
+          >
+            hello
+        </div>
+      </div>
+      <hr>
+      <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+      <div>
+        <button @click="startProgress">Start Progress</button>
+        <div id="progressBar" :style="progressBarStyles"></div>
+      </div>
+    </div>
+    
+    <script src="app.js"></script>
+    
+  </body>
+</html>
+
+
+
