@@ -8,7 +8,8 @@ new Vue({
     monster: {
       health: 100
     },
-    newGame: false
+    newGame: false,
+    battleLog: []
   },
   methods: {},
   computed: {}
