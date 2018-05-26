@@ -11,6 +11,13 @@ new Vue({
     newGame: false,
     battleLog: []
   },
-  methods: {},
+  methods: {
+    restart: function() {
+      this.player.health = 100;
+      this.monster.health = 100;
+      this.newGame = !this.newGame;
+      return;
+    }
+  },
   computed: {}
 });
