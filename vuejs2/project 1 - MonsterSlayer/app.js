@@ -24,6 +24,9 @@ new Vue({
       max = Math.floor(max);
       const damage = Math.floor(Math.random() * (max - min + 1)) + min;
       console.log(`${min > 0 ? 'SPECIAL ' : ''}DAMAGE IS ${damage}`);
+      this.battleLog.push(
+        `SHIT JUST WENT DOWN! ${damage} DAMAGE POINTS WERE DEALT!`
+      );
       return damage;
     }
   },
