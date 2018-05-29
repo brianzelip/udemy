@@ -19,22 +19,24 @@ new Vue({
       this.newGame = !this.newGame;
       return;
     },
-    attack: function(min, max) {
+    attack: function(minMaxArray, attacker) {
+      // minMaxArray = [min, max]
+      // attacker = string name of attacker
       const vm = this;
       // via https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
-      min = Math.ceil(min);
-      max = Math.floor(max);
+      const min = Math.ceil(minMaxArray[0]);
+      const max = Math.floor(minMaxArray[1]);
       function rand() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
-      function damage(attacker) {
+      function damage() {
         const points = rand();
         const attackee = attacker === 'player' ? 'monster' : 'player';
         vm[attackee].health -= points;
         vm.battleLog.push(`${attacker} hits ${attackee} for ${points}`);
         return points;
       }
-      damage('player');
+      damage();
       // console.log(`${min > 0 ? 'SPECIAL ' : ''}DAMAGE IS ${damage('player')}`);
     }
   },
