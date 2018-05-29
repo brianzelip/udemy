@@ -41,7 +41,7 @@
         <button id="restart" @click="restart()">RESTART</button>
       </div>
     </section>
-    <section class="row log" v-if="battleLog.length > 0">
+    <section class="row log" v-if="newGame && (battleLog.length > 0)">
       <div class="small-12 columns">
         <ul>
           <li v-for="move in battleLog">{{ move }}</li>

@@ -15,6 +15,7 @@ new Vue({
     restart: function() {
       this.player.health = 100;
       this.monster.health = 100;
+      this.battleLog = [];
       this.newGame = !this.newGame;
       return;
     },
