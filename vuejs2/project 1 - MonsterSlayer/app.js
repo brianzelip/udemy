@@ -22,6 +22,11 @@ new Vue({
       this.newGame = !this.newGame;
       return;
     },
+    rand: function(minMaxArray) {
+      const min = Math.ceil(minMaxArray[0]);
+      const max = Math.floor(minMaxArray[1]);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
     attack: function(minMaxArray, attacker) {
       // minMaxArray = [min, max]
       // attacker = string name of attacker
