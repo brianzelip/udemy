@@ -30,11 +30,11 @@ new Vue({
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
       function damage() {
-        const points = rand();
+        const damageScore = rand();
         const attackee = attacker === 'player' ? 'monster' : 'player';
-        vm[attackee].health -= points;
-        vm.battleLog.push(`${attacker} hits ${attackee} for ${points}`);
-        return points;
+        vm[attackee].health -= damageScore;
+        vm.battleLog.push(`${attacker} hits ${attackee} for ${damageScore}`);
+        return damageScore;
       }
       damage();
       // console.log(`${min > 0 ? 'SPECIAL ' : ''}DAMAGE IS ${damage('player')}`);
