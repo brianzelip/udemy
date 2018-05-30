@@ -32,13 +32,8 @@ new Vue({
       // attacker = string name of attacker
       const vm = this;
       // via https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
-      const min = Math.ceil(minMaxArray[0]);
-      const max = Math.floor(minMaxArray[1]);
-      function rand() {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
       function doDamageBy(name) {
-        const damageScore = rand();
+        const damageScore = vm.rand(minMaxArray);
         const victim = name === 'player' ? 'monster' : 'player';
         vm[victim].health -= damageScore;
         vm.battleLog.push(`${name} hits ${victim} for ${damageScore}`);
@@ -49,10 +44,7 @@ new Vue({
         : doDamageBy(attacker);
     },
     heal: function() {
-      function rand(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-      const healScore = rand(5, 12);
+      const healScore = this.rand(this.healRangeMinMax);
       this.player.health += healScore;
       this.battleLog.push(`PLAYER heals for ${healScore}!`);
       this.attack([0, 10], 'monster');
