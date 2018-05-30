@@ -36,8 +36,19 @@ new Vue({
         vm.battleLog.push(`${name} hits ${victim} for ${damageScore}`);
         return damageScore;
       }
-      damage();
-      // console.log(`${min > 0 ? 'SPECIAL ' : ''}DAMAGE IS ${damage('player')}`);
+      attacker === 'player'
+        ? (doDamageBy(attacker), doDamageBy('monster'))
+        : doDamageBy(attacker);
+    },
+    heal: function() {
+      function rand(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      const healScore = rand(5, 12);
+      this.player.health += healScore;
+      this.battleLog.push(`PLAYER heals for ${healScore}!`);
+      this.attack([0, 10], 'monster');
+      return healScore;
     }
   },
   computed: {}
