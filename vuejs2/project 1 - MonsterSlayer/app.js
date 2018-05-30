@@ -2,6 +2,8 @@ new Vue({
   el: '[data-vue]',
   data: {
     msg: 'hello',
+    attackRangeMinMax: [0, 10],
+    specialAttackRangeMinMax: [7, 15],
     player: {
       health: 100
     },
