@@ -29,11 +29,11 @@ new Vue({
       function rand() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
-      function damage() {
+      function doDamageBy(name) {
         const damageScore = rand();
-        const attackee = attacker === 'player' ? 'monster' : 'player';
-        vm[attackee].health -= damageScore;
-        vm.battleLog.push(`${attacker} hits ${attackee} for ${damageScore}`);
+        const victim = name === 'player' ? 'monster' : 'player';
+        vm[victim].health -= damageScore;
+        vm.battleLog.push(`${name} hits ${victim} for ${damageScore}`);
         return damageScore;
       }
       damage();
