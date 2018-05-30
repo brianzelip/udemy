@@ -4,6 +4,7 @@ new Vue({
     msg: 'hello',
     attackRangeMinMax: [0, 10],
     specialAttackRangeMinMax: [7, 15],
+    healRangeMinMax: [5, 12],
     player: {
       health: 100
     },
