@@ -16,6 +16,12 @@ new Vue({
     end: ''
   },
   methods: {
+    healthBarStyles: function(agent) {
+      // 'agent' here is a synonym for the general term 'player'
+      return {
+        width: this[agent].health > 0 ? `${this[agent].health}%` : '0px'
+      };
+    },
     restart: function() {
       this.player.health = 100;
       this.monster.health = 100;
