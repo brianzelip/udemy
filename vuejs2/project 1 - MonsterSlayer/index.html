@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/app.css">
   <style>
     /* .modal via https://css-tricks.com/considerations-styling-modal/ */
+
     .modal {
       position: fixed;
       z-index: 100;
@@ -68,7 +69,8 @@
     <section class="row modal" v-if="checkWin">
       <div class="small-12 columns">
         <h1>{{ end }}</h1>
-      </div>  
+        <button id="restart-modal" @click="restart()">RESTART</button>
+      </div>
     </section>
   </div>
 
