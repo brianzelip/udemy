@@ -51,9 +51,33 @@ new Vue({
         vm.battleLog.push([name, `${name} hits ${victim} for ${damageScore}`]);
         return damageScore;
       }
-      attacker === 'player'
-        ? (doDamageBy(attacker), doDamageBy('monster'))
-        : doDamageBy(attacker);
+      if (attacker === 'player') {
+        if (!vm.checkMonsterWin) {
+          if (!vm.checkPlayerWin) {
+            doDamageBy(attacker);
+            if (!vm.checkPlayerWin) {
+              if (!vm.checkMonsterWin) {
+                doDamageBy('monster');
+                if (!vm.checkMonsterWin) {
+                  return;
+                }
+              }
+            }
+          }
+        }
+      } else {
+        if (!vm.checkPlayerWin) {
+          if (!vm.checkMonsterWin) {
+            doDamageBy(attacker);
+            if (!vm.checkMonsterWin) {
+              return;
+            }
+          }
+        }
+      }
+      // attacker === 'player'
+      //   ? (doDamageBy(attacker), doDamageBy('monster'))
+      //   : doDamageBy(attacker);
     },
     heal: function() {
       const healScore = this.rand(this.healRangeMinMax);
