@@ -82,7 +82,9 @@ new Vue({
     },
     heal: function() {
       const healScore = this.rand(this.healRangeMinMax);
-      this.player.health += healScore;
+      this.player.health + healScore > 100
+        ? (this.player.health = 100)
+        : (this.player.health += healScore);
       this.battleLog.push(['player', `PLAYER heals for ${healScore}!`]);
       this.attack([0, 10], 'monster');
       return healScore;
