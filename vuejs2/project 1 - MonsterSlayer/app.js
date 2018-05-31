@@ -13,6 +13,7 @@ new Vue({
     },
     newGame: false,
     battleLog: [],
+    weHaveAWinner: false,
     end: ''
   },
   methods: {
@@ -27,6 +28,7 @@ new Vue({
       this.monster.health = 100;
       this.battleLog = [];
       this.newGame = !this.newGame;
+      this.weHaveAWinner = false;
       return;
     },
     rand: function(minMaxArray) {
