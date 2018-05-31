@@ -66,7 +66,7 @@ new Vue({
       return this.player.health <= 0
         ? ((this.end = 'YOU LOST 😿'), true)
         : this.monster.health <= 0
-          ? ((this.end = 'YOU WON 🎊'), true)
+          ? ((this.end = 'YOU WON 🎉'), true)
           : false;
     }
   }
