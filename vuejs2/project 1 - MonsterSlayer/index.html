@@ -6,6 +6,23 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <link rel="stylesheet" href="css/foundation.min.css">
   <link rel="stylesheet" href="css/app.css">
+  <style>
+    /* .modal via https://css-tricks.com/considerations-styling-modal/ */
+    .modal {
+      position: fixed;
+      z-index: 100;
+      display: block;
+      left: 50%;
+      top: 50%;
+      width: 600px;
+      max-width: 100%;
+      height: 400px;
+      max-height: 100%;
+      transform: translate(-50%, -50%);
+      background: white;
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 
 <body>
@@ -47,6 +64,11 @@
           <li v-for="entry in battleLog.slice().reverse()" :class="`${entry[0]}-turn`">{{ entry[1] }}</li>
         </ul>
       </div>
+    </section>
+    <section class="row modal" v-if="checkWin">
+      <div class="small-12 columns">
+        <h1>{{ end }}</h1>
+      </div>  
     </section>
   </div>
 
