@@ -12,7 +12,8 @@ new Vue({
       health: 100
     },
     newGame: false,
-    battleLog: []
+    battleLog: [],
+    end: ''
   },
   methods: {
     restart: function() {
@@ -52,5 +53,9 @@ new Vue({
       return healScore;
     }
   },
-  computed: {}
+  computed: {
+    checkWin: function() {
+      return this.player.health <= 0 || this.monster.health <= 0;
+    }
+  }
 });
