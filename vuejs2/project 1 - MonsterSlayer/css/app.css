@@ -86,10 +86,12 @@ button {
   background-color: #76ff7e;
 }
 
-#restart {
+#restart,
+#restart-modal {
   background-color: #ffffff;
 }
 
-#restart:hover {
+#restart:hover,
+#restart-modal:hover {
   background-color: #c7c7c7;
 }
