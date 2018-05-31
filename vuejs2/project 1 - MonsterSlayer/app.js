@@ -42,7 +42,9 @@ new Vue({
       function doDamageBy(name) {
         const damageScore = vm.rand(minMaxArray);
         const victim = name === 'player' ? 'monster' : 'player';
-        vm[victim].health -= damageScore;
+        vm[victim].health - damageScore <= 0
+          ? (vm[victim].health = 0)
+          : (vm[victim].health -= damageScore);
         // battlelog = [[string of player name, string of player move], ...]
         vm.battleLog.push([name, `${name} hits ${victim} for ${damageScore}`]);
         return damageScore;
