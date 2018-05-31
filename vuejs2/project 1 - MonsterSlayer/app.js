@@ -62,12 +62,15 @@ new Vue({
     }
   },
   computed: {
-    checkWin: function() {
+    checkPlayerWin: function() {
+      return this.monster.health <= 0
+        ? ((this.end = 'YOU WON 🎉'), (this.weHaveAWinner = true), true)
+        : false;
+    },
+    checkMonsterWin: function() {
       return this.player.health <= 0
-        ? ((this.end = 'YOU LOST 😿'), true)
-        : this.monster.health <= 0
-          ? ((this.end = 'YOU WON 🎉'), true)
-          : false;
+        ? ((this.end = 'YOU LOST 😿'), (this.weHaveAWinner = true), true)
+        : false;
     }
   }
 });
