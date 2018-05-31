@@ -1,7 +1,8 @@
 new Vue({
   el: '[data-vue]',
   data: {
-    msg: 'hello',
+    sourceCode:
+      'https://github.com/brianzelip/udemy/tree/master/vuejs2/project%201%20-%20MonsterSlayer',
     attackRangeMinMax: [0, 10],
     specialAttackRangeMinMax: [7, 15],
     healRangeMinMax: [5, 12],
