@@ -55,7 +55,11 @@ new Vue({
   },
   computed: {
     checkWin: function() {
-      return this.player.health <= 0 || this.monster.health <= 0;
+      return this.player.health <= 0
+        ? ((this.end = 'YOU LOST 😿'), true)
+        : this.monster.health <= 0
+          ? ((this.end = 'YOU WON 🎊'), true)
+          : false;
     }
   }
 });
