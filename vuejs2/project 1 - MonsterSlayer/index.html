@@ -66,7 +66,7 @@
         </ul>
       </div>
     </section>
-    <section class="row modal" v-if="checkWin">
+    <section class="row modal" v-if="weHaveAWinner">
       <div class="small-12 columns" :style="{textAlign: 'center'}">
         <h1>{{ end }}</h1>
         <button id="restart-modal" @click="restart()">RESTART</button>
