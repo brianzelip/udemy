@@ -53,8 +53,8 @@
     </section>
     <section class="row controls" v-if="newGame">
       <div class="small-12 columns">
-        <button :disabled="weHaveAWinner" id="attack" @click="attack(attackRangeMinMax, 'player')">ATTACK</button>
-        <button :disabled="weHaveAWinner" id="special-attack" @click="attack(specialAttackRangeMinMax, 'player')">SPECIAL ATTACK</button>
+        <button :disabled="weHaveAWinner" id="attack" @click="attack(attackRange, 'player')">ATTACK</button>
+        <button :disabled="weHaveAWinner" id="special-attack" @click="attack(specialAttackRange, 'player')">SPECIAL ATTACK</button>
         <button :disabled="weHaveAWinner" id="heal" @click="heal()">HEAL</button>
         <button :disabled="weHaveAWinner" id="restart" @click="restart()">RESTART</button>
       </div>

@@ -3,9 +3,9 @@ new Vue({
   data: {
     sourceCode:
       'https://github.com/brianzelip/udemy/tree/master/vuejs2/project%201%20-%20MonsterSlayer',
-    attackRangeMinMax: [0, 10],
-    specialAttackRangeMinMax: [7, 15],
-    healRangeMinMax: [5, 12],
+    attackRange: { min: 0, max: 10 },
+    specialAttackRange: { min: 7, max: 15 },
+    healRange: { min: 5, max: 12 },
     playerHealth: 100,
     monsterHealth: 100,
     newGame: false,
@@ -28,18 +28,18 @@ new Vue({
       this.weHaveAWinner = false;
       return;
     },
-    rand: function(minMaxArray) {
+    rand: function(obj) {
       // via https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
-      const min = Math.ceil(minMaxArray[0]);
-      const max = Math.floor(minMaxArray[1]);
+      const min = Math.ceil(obj.min);
+      const max = Math.floor(obj.max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
-    attack: function(minMaxArray, attacker) {
-      // minMaxArray = [min, max]
+    attack: function(minMaxObj, attacker) {
+      // minMaxObj = [min, max]
       // attacker = string name of attacker
       const vm = this;
       function doDamageBy(name) {
-        const damageScore = vm.rand(minMaxArray);
+        const damageScore = vm.rand(minMaxObj);
         const victim = name === 'player' ? 'monster' : 'player';
         vm[`${victim}Health`] - damageScore <= 0
           ? (vm[`${victim}Health`] = 0)
@@ -77,12 +77,12 @@ new Vue({
       }
     },
     heal: function() {
-      const healScore = this.rand(this.healRangeMinMax);
+      const healScore = this.rand(this.healRange);
       this.playerHealth + healScore > 100
         ? (this.playerHealth = 100)
         : (this.playerHealth += healScore);
       this.battleLog.unshift(['player', `PLAYER heals for ${healScore}!`]);
-      this.attack([0, 10], 'monster');
+      this.attack(this.attackRange, 'monster');
       return healScore;
     }
   },
