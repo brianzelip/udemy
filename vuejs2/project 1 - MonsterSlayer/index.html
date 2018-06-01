@@ -62,7 +62,7 @@
     <section class="row log" v-if="newGame && (battleLog.length > 0)">
       <div class="small-12 columns">
         <ul>
-          <li v-for="entry in battleLog.slice().reverse()" :class="`${entry[0]}-turn`">{{ entry[1] }}</li>
+          <li v-for="entry in battleLog" :class="`${entry[0]}-turn`">{{ entry[1] }}</li>
         </ul>
       </div>
     </section>
