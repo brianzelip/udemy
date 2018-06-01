@@ -45,11 +45,11 @@ new Vue({
         vm[`${victim}Health`] - damageScore <= 0
           ? (vm[`${victim}Health`] = 0)
           : (vm[`${victim}Health`] -= damageScore);
-        // battlelog = [[string of player name, string of player move], ...]
-        vm.battleLog.unshift([
+        // battlelog = [{string of player name, string of player move}, ...]
+        vm.battleLog.unshift({
           name,
-          `${name} hits ${victim} for ${damageScore}`
-        ]);
+          move: `${name} hits ${victim} for ${damageScore}`
+        });
         return damageScore;
       }
       if (attacker === 'player') {
@@ -82,7 +82,10 @@ new Vue({
       this.playerHealth + healScore > 100
         ? (this.playerHealth = 100)
         : (this.playerHealth += healScore);
-      this.battleLog.unshift(['player', `PLAYER heals for ${healScore}!`]);
+      this.battleLog.unshift({
+        name: 'player',
+        move: `PLAYER heals for ${healScore}!`
+      });
       this.attack(this.attackRange, 'monster');
       return healScore;
     }
