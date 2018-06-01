@@ -6,12 +6,8 @@ new Vue({
     attackRangeMinMax: [0, 10],
     specialAttackRangeMinMax: [7, 15],
     healRangeMinMax: [5, 12],
-    player: {
-      health: 100
-    },
-    monster: {
-      health: 100
-    },
+    playerHealth: 100,
+    monsterHealth: 100,
     newGame: false,
     battleLog: [],
     weHaveAWinner: false,
@@ -25,8 +21,8 @@ new Vue({
       };
     },
     restart: function() {
-      this.player.health = 100;
-      this.monster.health = 100;
+      this.playerHealth = 100;
+      this.monsterHealth = 100;
       this.battleLog = [];
       this.newGame = !this.newGame;
       this.weHaveAWinner = false;
@@ -82,9 +78,9 @@ new Vue({
     },
     heal: function() {
       const healScore = this.rand(this.healRangeMinMax);
-      this.player.health + healScore > 100
-        ? (this.player.health = 100)
-        : (this.player.health += healScore);
+      this.playerHealth + healScore > 100
+        ? (this.playerHealth = 100)
+        : (this.playerHealth += healScore);
       this.battleLog.unshift(['player', `PLAYER heals for ${healScore}!`]);
       this.attack([0, 10], 'monster');
       return healScore;
@@ -92,12 +88,12 @@ new Vue({
   },
   computed: {
     checkPlayerWin: function() {
-      return this.monster.health <= 0
+      return this.monsterHealth <= 0
         ? ((this.end = 'YOU WON 🎉'), (this.weHaveAWinner = true), true)
         : false;
     },
     checkMonsterWin: function() {
-      return this.player.health <= 0
+      return this.playerHealth <= 0
         ? ((this.end = 'YOU LOST 😿'), (this.weHaveAWinner = true), true)
         : false;
     }
