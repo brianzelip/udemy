@@ -33,6 +33,7 @@ new Vue({
       return;
     },
     rand: function(minMaxArray) {
+      // via https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
       const min = Math.ceil(minMaxArray[0]);
       const max = Math.floor(minMaxArray[1]);
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -41,7 +42,6 @@ new Vue({
       // minMaxArray = [min, max]
       // attacker = string name of attacker
       const vm = this;
-      // via https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
       function doDamageBy(name) {
         const damageScore = vm.rand(minMaxArray);
         const victim = name === 'player' ? 'monster' : 'player';
@@ -76,9 +76,6 @@ new Vue({
           }
         }
       }
-      // attacker === 'player'
-      //   ? (doDamageBy(attacker), doDamageBy('monster'))
-      //   : doDamageBy(attacker);
     },
     heal: function() {
       const healScore = this.rand(this.healRangeMinMax);
