@@ -17,7 +17,7 @@ new Vue({
     healthBarStyles: function(agent) {
       // 'agent' here is a synonym for the general term 'player'
       return {
-        width: this[agent].health > 0 ? `${this[agent].health}%` : '0px'
+        width: this[`${agent}Health`] > 0 ? `${this[`${agent}Health`]}%` : '0px'
       };
     },
     restart: function() {
@@ -41,9 +41,9 @@ new Vue({
       function doDamageBy(name) {
         const damageScore = vm.rand(minMaxArray);
         const victim = name === 'player' ? 'monster' : 'player';
-        vm[victim].health - damageScore <= 0
-          ? (vm[victim].health = 0)
-          : (vm[victim].health -= damageScore);
+        vm[`${victim}Health`] - damageScore <= 0
+          ? (vm[`${victim}Health`] = 0)
+          : (vm[`${victim}Health`] -= damageScore);
         // battlelog = [[string of player name, string of player move], ...]
         vm.battleLog.unshift([
           name,
