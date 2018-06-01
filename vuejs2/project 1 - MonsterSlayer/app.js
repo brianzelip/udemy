@@ -15,7 +15,7 @@ new Vue({
   },
   methods: {
     healthBarStyles: function(agent) {
-      // 'agent' here is a synonym for the general term 'player'
+      // agent = 'player' || 'monster
       return {
         width: this[`${agent}Health`] > 0 ? `${this[`${agent}Health`]}%` : '0px'
       };
@@ -26,6 +26,7 @@ new Vue({
       this.battleLog = [];
       this.newGame = !this.newGame;
       this.weHaveAWinner = false;
+      this.end = '';
       return;
     },
     rand: function(obj) {
