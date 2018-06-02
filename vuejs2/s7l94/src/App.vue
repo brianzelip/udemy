@@ -6,8 +6,7 @@
 </template>
 
 <script>
-export default ('app',
-{
+export default {
   data: function() {
     return {
       status: 'All Good'
@@ -18,5 +17,5 @@ export default ('app',
       this.status = 'All Bad';
     }
   }
-});
+};
 </script>
