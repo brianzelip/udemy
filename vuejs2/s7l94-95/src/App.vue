@@ -14,7 +14,9 @@ export default {
   },
   methods: {
     changeStatus: function() {
-      this.status = 'All Bad';
+      return this.status === 'All Good'
+        ? (this.status = 'All Bad')
+        : (this.status = 'All Good');
     }
   }
 };
