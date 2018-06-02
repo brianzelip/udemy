@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>local-components-multiple-Vues | Workspace for Section 7 Lecture 93 - Registering Components Locally &amp; Globally</title>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+  </head>
+
+  <body>
+
+    <div data-js="1">
+      <button-counter></button-counter>
+    </div>
+    <div data-js="2">
+      <button-counter></button-counter>
+    </div>
+    <div data-js="3">
+      <button-counter></button-counter>
+    </div>
+
+    <script>
+
+      const btnCntr = {
+        data: function() {
+          return {
+            count: 0
+          }
+        },
+        template: `<button @click="count++">x{{ count }}</button>`
+      }
+      
+      new Vue({
+        el: '[data-js="1"]',
+        components: {
+          'button-counter': btnCntr
+        }
+      })
+      new Vue({
+        el: '[data-js="2"]',
+        components: {
+          'button-counter': btnCntr
+        }
+      })
+      new Vue({
+        el: '[data-js="3"]',
+        components: {
+          'button-counter': btnCntr
+        }
+      })
+    </script>
+
+  </body>
+</html>
