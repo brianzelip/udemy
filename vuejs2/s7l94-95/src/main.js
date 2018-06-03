@@ -1,18 +1,23 @@
 import Vue from 'vue';
-import App94 from './App-root-component.vue';
-import App95 from './App-creating-a-component.vue';
-import Status from './StatusChanger-creating-a-component.vue';
+import AppRoot from './App-root.vue';
+import AppGlobal from './App-global.vue';
+import AppLocal from './App-local.vue';
+import StatusChanger from './StatusChanger.vue';
 import AppIndex from './App-index.vue';
 
-Vue.component('status-changer', Status);
+Vue.component('status-changer-global', StatusChanger);
 
 new Vue({
-  el: '[data-vue="root-component"]',
-  render: h => h(App94)
+  el: '[data-vue="root"]',
+  render: h => h(AppRoot)
 });
 new Vue({
-  el: '[data-vue="creating-a-component"]',
-  render: h => h(App95)
+  el: '[data-vue="global"]',
+  render: h => h(AppGlobal)
+});
+new Vue({
+  el: '[data-vue="local"]',
+  render: h => h(AppLocal)
 });
 new Vue({
   el: '[data-vue="index"]',
