@@ -2,9 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <header>
-                    <h1>Server Status</h1>
-                </header>
+                <Header></Header>
             </div>
         </div>
         <hr>
@@ -25,15 +23,21 @@
         <hr>
         <div class="row">
             <div class="col-xs-12">
-                <footer>
-                    <p>All Servers are managed here</p>
-                </footer>
+                <Footer></Footer>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Header from './Header.vue';
+import Footer from './Footer.vue';
+export default {
+  components: {
+    Header,
+    Footer
+  }
+};
 </script>
 
 <style>
