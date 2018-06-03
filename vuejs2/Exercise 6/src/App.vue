@@ -8,13 +8,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <ul class="list-group">
-                    <li
-                            class="list-group-item"
-                            v-for="index in 5" :key="index">
-                        Server #{{ index }}
-                    </li>
-                </ul>
+              <ServerList></ServerList>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <p>Server Details are currently not updated</p>
@@ -31,10 +25,12 @@
 
 <script>
 import Header from './Header.vue';
+import ServerList from './ServerList.vue';
 import Footer from './Footer.vue';
 export default {
   components: {
     Header,
+    ServerList,
     Footer
   }
 };
