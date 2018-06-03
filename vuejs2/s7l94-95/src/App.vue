@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <h1>Status: {{ status }}</h1>
     <button @click="changeStatus">Change Status</button>
   </div>
