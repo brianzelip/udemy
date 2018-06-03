@@ -1,6 +1,8 @@
 <template>
-  <header>
-    <h1>{{ pageTitle }}</h1>
+  <header class="row">
+    <div class="col-xs-12">
+      <h1>{{ pageTitle }}</h1>
+    </div>
   </header>
 </template>
 

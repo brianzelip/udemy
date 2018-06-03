@@ -1,5 +1,7 @@
 <template>
-  <p>{{ serverDetails }}</p>
+  <div class="col-xs-12 col-sm-6">
+    <p>{{ serverDetails }}</p>
+  </div>
 </template>
 
 <script>

@@ -1,26 +1,14 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <Header></Header>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6">
-              <ServerList></ServerList>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <ServerDetails></ServerDetails>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-xs-12">
-                <Footer></Footer>
-            </div>
-        </div>
+  <div class="container">
+    <Header></Header>
+    <hr>
+    <div class="row">
+      <ServerList></ServerList>
+      <ServerDetails></ServerDetails>
     </div>
+    <hr>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
