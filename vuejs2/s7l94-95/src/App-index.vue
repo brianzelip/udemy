@@ -15,10 +15,17 @@ export default {
       title:
         'Workspace for Section 7 Lecture 94 - Root Component, and Lecture 95 - Creating a Component',
       works: {
-        '94': { title: 'Root component', url: 'root-component.html' },
-        '95': {
-          title: 'Creating a component',
-          url: 'creating-a-component.html'
+        root: {
+          title: 'Use root component',
+          url: 'root-component.html'
+        },
+        global: {
+          title: 'Use global component',
+          url: 'global-component.html'
+        },
+        local: {
+          title: 'Use local component',
+          url: 'local-component.html'
         }
       }
     };
