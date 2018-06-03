@@ -11,7 +11,7 @@
               <ServerList></ServerList>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <p>Server Details are currently not updated</p>
+                <ServerDetails></ServerDetails>
             </div>
         </div>
         <hr>
@@ -26,11 +26,13 @@
 <script>
 import Header from './Header.vue';
 import ServerList from './ServerList.vue';
+import ServerDetails from './ServerDetails.vue';
 import Footer from './Footer.vue';
 export default {
   components: {
     Header,
     ServerList,
+    ServerDetails,
     Footer
   }
 };
