@@ -1,5 +1,7 @@
 <template>
-  <status-changer></status-changer>
+  <div>
+    <status-changer v-for="n in 5" :key="n"></status-changer>
+  </div>
 </template>
 
 <script>
