@@ -4,13 +4,15 @@
       <server
         v-for="server in servers"
         :server="server"
-        :key="server.id"></server>
+        :key="server.id">
+      </server>
     </ul>
   </div>
 </template>
 
 <script>
 import server from './Server.vue';
+
 export default {
   data() {
     return {
