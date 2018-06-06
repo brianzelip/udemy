@@ -20,6 +20,9 @@ export default {
     eventBus.$on('serverWasClicked', server => {
       this.server = server;
     });
+  },
+  methods: {
+    changeToNormal() {}
   }
 };
 </script>
