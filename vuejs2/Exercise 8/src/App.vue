@@ -20,13 +20,20 @@
     import Green from './components/Green.vue';
     import Red from './components/Red.vue';
 
-    export default {
-        components: {
-            appBlue: Blue,
-            appGreen: Green,
-            appRed: Red
-        }
-    }
+export default {
+  data() {
+    return {
+      title: 'Hello world!',
+      body: "Isn't Vue.js so darn dope?!",
+      selectedComponent: 'appBlue'
+    };
+  },
+  components: {
+    appBlue: Blue,
+    appGreen: Green,
+    appRed: Red
+  }
+};
 </script>
 
 <style>
