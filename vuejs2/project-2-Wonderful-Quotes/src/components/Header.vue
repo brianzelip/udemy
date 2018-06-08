@@ -2,7 +2,7 @@
   header
     h1 Quotes Added
     .progress
-      .progress-bar(role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+      .progress-bar(role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100") 25%
 </template>
 
 <script>
