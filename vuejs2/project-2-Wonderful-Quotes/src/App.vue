@@ -11,6 +11,7 @@ import appHeader from './components/Header.vue';
 import appFooter from './components/Footer.vue';
 import appForm from './components/Form.vue';
 import appQuoteGrid from './components/QuoteGrid.vue';
+import { quoteBus } from './main';
 export default {
   data() {
     return {
@@ -22,6 +23,11 @@ export default {
     appForm,
     appQuoteGrid,
     appFooter
+  },
+  created() {
+    quoteBus.$on('newQuoteAdded', quote => {
+      this.quotes.push(quote);
+    });
   }
 };
 </script>
