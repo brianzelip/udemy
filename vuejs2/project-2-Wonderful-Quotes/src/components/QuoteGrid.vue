@@ -6,6 +6,7 @@
 
 <script>
 import appQuote from './Quote.vue';
+
 export default {
   props: {
     quotes: Array
