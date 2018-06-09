@@ -2,6 +2,7 @@
   .container(style="margin-top: 3rem;")
     app-header
     app-form
+    app-quote-grid(:quotes="quotes")
     app-footer
 </template>
 
@@ -9,6 +10,7 @@
 import appHeader from './components/Header.vue';
 import appFooter from './components/Footer.vue';
 import appForm from './components/Form.vue';
+import appQuoteGrid from './components/QuoteGrid.vue';
 export default {
   data() {
     return {
@@ -18,6 +20,7 @@ export default {
   components: {
     appHeader,
     appForm,
+    appQuoteGrid,
     appFooter
   }
 };
