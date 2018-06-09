@@ -28,6 +28,9 @@ export default {
     quoteBus.$on('newQuoteAdded', quote => {
       this.quotes.push(quote);
     });
+    quoteBus.$on('quoteClickedForDeletion', quote => {
+      this.quotes = this.quotes.filter(item => item !== quote);
+    });
   }
 };
 </script>
