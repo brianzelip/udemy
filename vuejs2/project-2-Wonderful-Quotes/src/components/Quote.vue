@@ -12,7 +12,7 @@ import { quoteBus } from '../main';
 export default {
   methods: {
     deleteQuote() {
-      quoteBus.$emit('quoteClickedForDeletion', this.$el.innerText);
+      quoteBus.$emit('quoteClickedForDeletion', this.$el.dataset.quoteIndex);
     }
   }
 };

@@ -28,8 +28,10 @@ export default {
     quoteBus.$on('newQuoteAdded', quote => {
       this.quotes.push(quote);
     });
-    quoteBus.$on('quoteClickedForDeletion', quote => {
-      this.quotes = this.quotes.filter(item => item !== quote);
+    quoteBus.$on('quoteClickedForDeletion', indexString => {
+      this.quotes = this.quotes.filter(
+        (item, i) => i.toString() !== indexString
+      );
     });
   }
 };
