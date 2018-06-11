@@ -1,7 +1,7 @@
 <template lang="pug">
   .container(style="margin-top: 3rem;")
-    app-header
-    app-form
+    app-header(:quotesProgress="quotesProgress")
+    app-form(:reachedMaxQuotes="reachedMaxQuotes")
     app-quote-grid(:quotes="quotes")
     app-footer
 </template>
@@ -15,8 +15,22 @@ import { quoteBus } from './main';
 export default {
   data() {
     return {
-      quotes: ['hello how are you', 'to be or not to be', 'hello i love you']
+      quotes: ['hello how are you', 'to be or not to be', 'hello i love you'],
+      maxQuotes: 10
     };
+  },
+  computed: {
+    reachedMaxQuotes() {
+      return this.quotes.length >= 10 ? true : false;
+    },
+    quotesProgress() {
+      const numQuotes = this.quotes.length;
+      const totalQuotes = this.maxQuotes;
+      return {
+        innerHTML: numQuotes > 0 ? `${numQuotes} / ${totalQuotes}` : '',
+        numQuotes
+      };
+    }
   },
   components: {
     appHeader,
