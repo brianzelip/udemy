@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container
+  .container.mt-4
     .row.justify-content-center
       .col-12.col-sm-8
         appForm
