@@ -8,6 +8,7 @@
           class="form-control"
           id="firstName"
           v-model="firstName"
+          @input="firstNameChanged"
           placeholder="First name")
     .form-group.row
       label(for="lastName" class="col-sm-2 col-form-label") Last name
@@ -17,6 +18,7 @@
           class="form-control"
           id="lastName"
           v-model="lastName"
+          @input="lastNameChanged"
           placeholder="Last name")
     .form-group.row
       label(for="email" class="col-sm-2 col-form-label") Email
@@ -26,6 +28,7 @@
           class="form-control"
           id="email"
           v-model="email"
+          @input="emailChanged"
           placeholder="Email")
     .form-group.row
       label(for="password" class="col-sm-2 col-form-label") Password
@@ -35,6 +38,7 @@
           class="form-control"
           id="password"
           v-model="password"
+          @input="passwordChanged"
           placeholder="Password")
     fieldset(class="form-group")
       .row
@@ -45,22 +49,23 @@
               class="form-check-input"
               type="radio"
               name="database"
-              id="databaseRadiosYes"
-              v-model="databaseRadiosYes"
-              value="Yes"
-              checked
+              id="databaseYes"
+              v-model="database"
+              @change="databaseChanged"
+              value="yes"
               )
             label(
-              class="form-check-label" for="gridRadios1") Yes
+              class="form-check-label" for="databaseYes") Yes
           .form-check.form-check-inline
             input(
               class="form-check-input"
               type="radio"
               name="database"
-              id="databaseRadiosNo"
-              v-model="databaseRadiosNo"
-              value="No")
-            label(class="form-check-label" for="gridRadios2") No
+              id="databaseNo"
+              v-model="database"
+              @change="databaseChanged"
+              value="no")
+            label(class="form-check-label" for="databaseNo") No
     .form-group.row
       .col-sm-10
         button(type="submit" class="btn btn-primary") Submit
@@ -81,6 +86,8 @@
 </template>
 
 <script>
+import { formBus } from '../main';
+
 export default {
   data() {
     return {
@@ -88,9 +95,25 @@ export default {
       lastName: '',
       email: '',
       password: '',
-      databaseRadiosYes: '',
-      databaseRadiosNo: ''
+      database: ''
     };
+  },
+  methods: {
+    firstNameChanged() {
+      formBus.$emit('firstNameWasChanged', this.firstName);
+    },
+    lastNameChanged() {
+      formBus.$emit('lastNameWasChanged', this.lastName);
+    },
+    emailChanged() {
+      formBus.$emit('emailWasChanged', this.email);
+    },
+    passwordChanged() {
+      formBus.$emit('passwordWasChanged', this.password);
+    },
+    databaseChanged() {
+      formBus.$emit('databaseWasChanged', this.database);
+    }
   }
 };
 </script>
