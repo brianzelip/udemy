@@ -68,7 +68,11 @@
             label(class="form-check-label" for="databaseNo") No
     .form-group.row
       .col-sm-10
-        button(type="submit" class="btn btn-primary") Submit
+        button(
+          type="button"
+          class="btn btn-primary"
+          @click.prevent="formSubmitted"
+          ) Submit
     <!-- Exercise 1 -->
     <!-- Create a Signup Form where you retrieve the following Information -->
     <!-- Full Name (First Name + Last Name) -->
@@ -113,6 +117,9 @@ export default {
     },
     databaseChanged() {
       formBus.$emit('databaseWasChanged', this.database);
+    },
+    formSubmitted() {
+      formBus.$emit('formWasSubmitted');
     }
   }
 };
