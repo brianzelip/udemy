@@ -7,23 +7,36 @@
   //     p Mail:
   //     p Password:
   //     p Store in Database?:
-  form
-    .form-group
-      label(for="firstName") First name
-      input(type="text" placeholder="Enter first name").form-control#firstName
-    .form-group
-      label(for="lastName") Last name
-      input(type="text" placeholder="Enter last name").form-control#lastName
-    .form-group
-      label(for="email") Email address
-      input(type="email" placeholder="Enter email").form-control#email
-    .form-group
-      label(for="exampleInputPassword1") Password
-      input(type="password" placeholder="Password").form-control#exampleInputPassword1
-    .form-check
-      input(type="checkbox" class="form-check-input" id="exampleCheck1")
-      label(class="form-check-label" for="exampleCheck1") Check me out
-    button(type="submit" class="btn btn-primary") Submit
+  form(class="border p-4")
+    .form-group.row
+      label(for="firstName" class="col-sm-2 col-form-label") First name
+      .col-sm-10
+        input(type="text" class="form-control" id="firstName" placeholder="First name")
+    .form-group.row
+      label(for="lastName" class="col-sm-2 col-form-label") Last name
+      .col-sm-10
+        input(type="text" class="form-control" id="lastName" placeholder="Last name")
+    .form-group.row
+      label(for="email" class="col-sm-2 col-form-label") Email
+      .col-sm-10
+        input(type="email" class="form-control" id="email" placeholder="Email")
+    .form-group.row
+      label(for="password" class="col-sm-2 col-form-label") Password
+      .col-sm-10
+        input(type="password" class="form-control" id="password" placeholder="Password")
+    fieldset(class="form-group")
+      .row
+        legend(class="col-form-label col-sm-2 pt-0") Store in database?
+        .col-sm-10
+          .form-check.form-check-inline
+            input(class="form-check-input" type="radio" name="database" id="databaseRadiosYes" value="Yes" checked)
+            label(class="form-check-label" for="gridRadios1") Yes
+          .form-check.form-check-inline
+            input(class="form-check-input" type="radio" name="database" id="databaseRadiosNo" value="No")
+            label(class="form-check-label" for="gridRadios2") No
+    .form-group.row
+      .col-sm-10
+        button(type="submit" class="btn btn-primary") Submit
     <!-- Exercise 1 -->
     <!-- Create a Signup Form where you retrieve the following Information -->
     <!-- Full Name (First Name + Last Name) -->
