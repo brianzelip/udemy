@@ -5,7 +5,7 @@
         <h1>Directives Exercise</h1>
         <!-- Exercise -->
         <!-- Build a Custom Directive which works like v-on (Listen for Events) -->
-        <p v-window:resize>{{ viewportWidth }}px wide x {{ viewportHeight }}px high</p>
+        <p v-window>{{ width }}px wide x {{ height }}px high</p>
       </div>
     </div>
   </div>
@@ -15,20 +15,29 @@
 export default {
   data() {
     return {
-      msg: 'hello'
+      msg: 'hello',
+      width: '',
+      height: ''
     };
   },
   directives: {
-    window: {
-      bind = () => {}
+    window(el) {
+      console.log('hello window!');
+      el.innerHTML = `${window.innerWidth}px wide x ${
+        window.innerHeight
+      }px high`;
+      // window.addEventListener('resize', function() {
+      //   vm.width = window.innerWidth;
+      //   vm.height = window.innerHeight;
+      // });
     }
   },
   computed: {
     viewportWidth() {
-      return window.screen.width;
+      return window.innerWidth;
     },
     viewportHeight() {
-      return window.screen.height;
+      return window.innerHeight;
     }
   }
 };
