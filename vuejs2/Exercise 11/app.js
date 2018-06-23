@@ -1,14 +1,10 @@
 import Vue from 'vue';
 import App from './src/App.vue';
 
-Vue.filter('to-lowercase', function(value) {
-  return value.toLowerCase();
-});
-
-Vue.mixin({
-  created() {
-    console.log('Global Mixin - Created Hook');
-  }
+Vue.filter('wordCount', function(value) {
+  if (!value) return '';
+  const count = value.length;
+  return `${value} (${count})`;
 });
 
 new Vue({
