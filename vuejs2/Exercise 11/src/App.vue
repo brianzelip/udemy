@@ -1,10 +1,12 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <div class="col-12">
         <h1>Filters &amp; Mixins</h1>
         <label for="text1">Enter text: </label>
         <input type="text" id="text1" v-model="text">
+        <label for="text2" style="padding-left: 2rem;">mixin text: </label>
+        <input type="text" disabled id="text2" v-model="mixinText" :placeholder="text" @input="updateMixinText">
 
         <table class="table">
           <thead>
@@ -12,6 +14,7 @@
               <th scope="col">Challenge</th>
               <th scope="col">Filter</th>
               <th scope="col">Computed Property</th>
+              <th scope="col">Mixin</th>
             </tr>
           </thead>
           <tbody>
@@ -19,16 +22,19 @@
               <td>text</td>
               <td>{{ text }}</td>
               <td>{{ text }}</td>
+              <td>{{ mixinText }}</td>
             </tr>
             <tr>
               <td>text reversed</td>
               <td>{{ text | reverse }}</td>
               <td>{{ reverseText }}</td>
+              <td></td>
             </tr>
             <tr>
               <td>text word count</td>
               <td>{{ text | wordCount }}</td>
               <td>{{ wordCountText }}</td>
+              <td></td>
             </tr>
           </tbody>
         </table>
@@ -51,6 +57,8 @@
 </template>
 
 <script>
+import { reverseMixin } from './reverseMixin.js';
+
 export default {
   data() {
     return {
@@ -63,6 +71,11 @@ export default {
         .split('')
         .reverse()
         .join('');
+    }
+  },
+  methods: {
+    updateMixinText() {
+      mixinText = this.text;
     }
   },
   computed: {
