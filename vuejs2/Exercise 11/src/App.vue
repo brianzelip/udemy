@@ -3,8 +3,10 @@
     <div class="row">
       <div class="col-12">
         <h1>Filters &amp; Mixins</h1>
-        <label for="text1">Enter text: </label>
+        <label for="text1">Enter text for Filter and Computed Property: </label>
         <input type="text" id="text1" v-model="text">
+        <label for="text2" style="padding-left: 2rem;">Enter text for Mixin: </label>
+        <input type="text" id="text2" v-model="mixinText">
 
         <table class="table">
           <thead>
@@ -20,19 +22,19 @@
               <td>text</td>
               <td>{{ text }}</td>
               <td>{{ text }}</td>
-              <td>{{ sendMixinText }}</td>
+              <td>{{ mixinText }}</td>
             </tr>
             <tr>
               <td>text reversed</td>
               <td>{{ text | reverse }}</td>
               <td>{{ reverseText }}</td>
-              <td></td>
+              <td>{{ reverseMixin }}</td>
             </tr>
             <tr>
               <td>text word count</td>
               <td>{{ text | wordCount }}</td>
               <td>{{ wordCountText }}</td>
-              <td></td>
+              <td>{{ wordCountMixin }}</td>
             </tr>
           </tbody>
         </table>
