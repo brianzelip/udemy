@@ -5,8 +5,6 @@
         <h1>Filters &amp; Mixins</h1>
         <label for="text1">Enter text: </label>
         <input type="text" id="text1" v-model="text">
-        <label for="text2" style="padding-left: 2rem;">mixin text: </label>
-        <input type="text" disabled id="text2" v-model="mixinText" :placeholder="text" @input="updateMixinText">
 
         <table class="table">
           <thead>
@@ -22,7 +20,7 @@
               <td>text</td>
               <td>{{ text }}</td>
               <td>{{ text }}</td>
-              <td>{{ mixinText }}</td>
+              <td>{{ sendMixinText }}</td>
             </tr>
             <tr>
               <td>text reversed</td>
@@ -57,7 +55,7 @@
 </template>
 
 <script>
-import { reverseMixin } from './reverseMixin.js';
+import { textMixin } from './textMixin.js';
 
 export default {
   data() {
@@ -75,7 +73,8 @@ export default {
   },
   methods: {
     updateMixinText() {
-      mixinText = this.text;
+      // mixinText = this.text;
+      console.log('updateMixinText!!');
     }
   },
   computed: {
@@ -89,8 +88,13 @@ export default {
       if (this.text === '') return '';
       const count = this.text.length;
       return `${this.text} (${count})`;
+    },
+    sendMixinText() {
+      textMixin.mixinText = this.text;
+      return textMixin.mixinText;
     }
-  }
+  },
+  mixins: [textMixin]
 };
 </script>
 

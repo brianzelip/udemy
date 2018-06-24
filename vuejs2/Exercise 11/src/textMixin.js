@@ -1,7 +1,7 @@
-export const reverseMixin = {
+export const textMixin = {
   data() {
     return {
-      mixinText: ''
+      mixinText: 'branasgaefkjhsd'
     };
   },
   computed: {
