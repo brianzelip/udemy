@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style scoped>
+section {
+  height: 13rem;
+}
 button {
   min-width: 5rem;
 }
