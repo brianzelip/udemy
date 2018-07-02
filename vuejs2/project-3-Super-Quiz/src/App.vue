@@ -2,8 +2,8 @@
   main.container
     h1.center The Super Quiz
     hr
-    app-question
-    app-answer
+    app-question(v-show="!answered" :qData="qData()")
+    app-answer(v-show="answered")
 
 </template>
 
