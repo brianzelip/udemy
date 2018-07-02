@@ -5,13 +5,21 @@
     .p2.rounded-bottom
       ul.list-reset.mt2.flex.flex-wrap
         li.col-6.flex.flex-center.mb2(v-for="choice in qData.ranChoices")
-          button.mx-auto.h2.btn.btn-primary {{ choice }}
+          button.mx-auto.h2.btn.btn-primary(@click="checkAnswer") {{ choice }}
 </template>
 
 <script>
 export default {
   data() {
     return {};
+  },
+  methods: {
+    checkAnswer() {
+      // need the innerHTML from the element that was clicked
+      // compare it to qData.answer, if same, 🎉, if not, 🐀
+      // something like:
+      // el
+    }
   },
   props: ['qData']
 };
