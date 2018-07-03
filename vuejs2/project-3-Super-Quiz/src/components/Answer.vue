@@ -3,15 +3,22 @@
     .box
       h1.mt0.purple You are correct 🎉
       p.h2.bold.purple {{ aData.val1 }} {{ aData.operator }} {{ aData.val2 }} = {{ aData.answer }}
-      button.btn.btn-primary Play again
+      button.btn.btn-primary(@click="restart") Play again
 </template>
 
 <script>
+import { questionBus } from '../../app.js';
+
 export default {
   data() {
     return {};
   },
-  props: ['aData']
+  props: ['aData'],
+  methods: {
+    restart() {
+      questionBus.$emit('restarted');
+    }
+  }
 };
 </script>
 
