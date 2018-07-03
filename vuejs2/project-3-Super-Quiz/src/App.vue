@@ -72,6 +72,9 @@ export default {
         answer: qData.answer
       };
     });
+    questionBus.$on('restarted', () => {
+      vm.answered = false;
+    });
   }
 };
 </script>
