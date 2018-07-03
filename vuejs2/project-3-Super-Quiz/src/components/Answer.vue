@@ -1,7 +1,8 @@
 <template lang="pug">
   section.col-6.mx-auto.border.rounded.bg-aqua
     .box
-      h1.mt0.purple That's correct! 🎉
+      h1.mt0.purple You are correct 🎉
+      p.h2.bold.purple {{ aData.val1 }} {{ aData.operator }} {{ aData.val2 }} = {{ aData.answer }}
       button.btn.btn-primary Play again
 </template>
 
@@ -9,7 +10,8 @@
 export default {
   data() {
     return {};
-  }
+  },
+  props: ['aData']
 };
 </script>
 
