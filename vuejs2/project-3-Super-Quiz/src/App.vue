@@ -2,9 +2,13 @@
   main.container
     h1.center The Super Quiz
     hr
-    app-question(v-show="!answered" :qData="qData()")
-    app-answer(v-show="answered" :aData="aData")
-
+    transition(
+      mode="out-in"
+      enter-active-class="animated flipInY"
+      leave-active-class="animated flipOutY"
+    )
+      app-question(v-if="!answered" :qData="qData()" key="question")
+      app-answer(v-if="answered" :aData="aData" key="answer")
 </template>
 
 <script>
