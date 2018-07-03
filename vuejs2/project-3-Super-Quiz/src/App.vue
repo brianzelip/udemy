@@ -4,9 +4,13 @@
     hr
     transition(
       mode="out-in"
-      enter-active-class="animated flipInY"
-      leave-active-class="animated flipOutY"
+      name="flip"
     )
+      // transition(
+      //   mode="out-in"
+      //   enter-active-class="animated flipInY"
+      //   leave-active-class="animated flipOutY"
+      // )
       app-question(v-if="!answered" :qData="qData()" key="question")
       app-answer(v-if="answered" :aData="aData" key="answer")
 </template>
@@ -83,3 +87,43 @@ export default {
 };
 </script>
 
+<style>
+.flip-enter-active {
+  animation: flip-in-x 0.2s ease-out;
+}
+.flip-leave-active {
+  animation: flip-out-x 0.2s ease-out;
+}
+@keyframes flip-out-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(90deg);
+  }
+}
+@keyframes flip-in-y {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes flip-out-x {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(90deg);
+  }
+}
+@keyframes flip-in-x {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+</style>
