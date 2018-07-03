@@ -3,18 +3,20 @@
     h1.center The Super Quiz
     hr
     app-question(v-show="!answered" :qData="qData()")
-    app-answer(v-show="answered")
+    app-answer(v-show="answered" :aData="aData")
 
 </template>
 
 <script>
+import { questionBus } from '../app.js';
 import Question from './components/Question.vue';
 import Answer from './components/Answer.vue';
 
 export default {
   data() {
     return {
-      answered: false
+      answered: false,
+      aData: {}
     };
   },
   methods: {
@@ -58,6 +60,18 @@ export default {
   components: {
     appQuestion: Question,
     appAnswer: Answer
+  },
+  created() {
+    const vm = this;
+    questionBus.$on('questionAnswered', qData => {
+      vm.answered = true;
+      vm.aData = {
+        val1: qData.val1,
+        val2: qData.val2,
+        operator: qData.operator,
+        answer: qData.answer
+      };
+    });
   }
 };
 </script>
