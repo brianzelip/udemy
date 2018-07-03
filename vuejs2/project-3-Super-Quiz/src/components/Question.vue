@@ -22,7 +22,7 @@ export default {
     checkAnswer(e) {
       e.srcElement.value === this.qData.answer.toString()
         ? questionBus.$emit('questionAnswered', this.qData)
-        : console.log('YOU LOSE!');
+        : alert('Wrong answer, try again!');
     }
   },
   props: ['qData']
