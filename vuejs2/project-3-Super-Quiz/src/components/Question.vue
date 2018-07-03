@@ -4,7 +4,10 @@
       h1.h3.m0.center {{ qData.question }}
     .p2.rounded-bottom
       ul.list-reset.mt2.flex.flex-wrap
-        li.col-6.flex.flex-center.mb2(v-for="choice in qData.ranChoices")
+        li.col-6.flex.flex-center(
+          v-for="(choice, index) in qData.ranChoices"
+          :class="[index < 2 ? 'mb2' : '']"
+        )
           button.mx-auto.h2.btn.btn-primary(
             type="button"
             :value="choice"
