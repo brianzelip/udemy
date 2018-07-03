@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { questionBus } from '../../app.js';
+
 export default {
   data() {
     return {};
@@ -19,8 +21,8 @@ export default {
   methods: {
     checkAnswer(e) {
       e.srcElement.value === this.qData.answer.toString()
-        ? alert('You Won 🎉')
-        : null;
+        ? questionBus.$emit('questionAnswered', this.qData)
+        : console.log('YOU LOSE!');
     }
   },
   props: ['qData']
