@@ -1,6 +1,10 @@
 <template lang="pug">
   main.container
-    h1.center The Super Quiz
+    transition(
+      appear
+      enter-active-class="animated fadeInDown"
+    )
+      h1.center The Super Quiz
     hr
     transition(
       mode="out-in"
